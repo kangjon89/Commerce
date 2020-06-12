@@ -1,0 +1,58 @@
+<h3>Update a Product!</h3>
+
+<div class="column">
+    <form (submit)="editProduct(editedProduct)">
+
+        <div  *ngIf="oneProduct.name.invalid && (oneProduct.name.dirty || oneProduct.name.untouched || oneProduct.name.touched)">
+            <div *ngIf="oneProduct.name.errors && oneProduct.name.errors.minlength">
+                Names must contain at least three characters!
+            </div>
+            <div *ngIf="oneProduct.name.errors.required">
+                Name is required.
+            </div>
+        </div> 
+    
+        <div *ngIf="oneProduct.quantity.invalid && (oneProduct.quantity.dirty || oneProduct.quantity.untouched || oneProduct.quantity.touched)">
+            <div *ngIf="oneProduct.quantity.errors && oneProduct.quantity.errors.minlength">
+                Quantity minimum is 1!
+            </div>
+            <div *ngIf="oneProduct.quantity.errors.required">
+                Quantity is required.
+            </div>
+        </div> 
+
+        <div *ngIf="oneProduct.price.invalid && (oneProduct.price.dirty || oneProduct.price.untouched || oneProduct.price.touched)">
+            <div *ngIf="oneProduct.price.errors && oneProduct.price.errors.minlength">
+                Price minimum is $1!
+            </div>
+            <div *ngIf="oneProduct.price.errors.required">
+                Price is required.
+            </div>
+        </div> <br>
+    
+        <label for="name">Name: </label>
+        <br>
+        <input type="text" name="oneProduct.name" id="name" 
+            [(ngModel)]="oneProduct.name">
+        <br>
+
+        <label for="type">QTY:</label>
+        <br>
+        <input type="text" name="oneProduct.quantity" id="quantity" 
+            [(ngModel)]="oneProduct.quantity">
+        <br> 
+
+        <label for="type">Price:</label>
+        <br>
+        <input type="text" name="oneProduct.price" id="price" 
+            [(ngModel)]="oneProduct.price">
+        <br> <br>
+
+        <button (click)="goHome()">CANCEL</button>
+        <input type="submit" value="Update">
+
+    </form>
+
+</div>
+
+

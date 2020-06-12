@@ -1,0 +1,30 @@
+<div class="col-row">
+    <button [routerLink] = "['/products/new']">New Product</button> 
+</div>
+<br>
+
+<div class="table">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>QTY</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of allProducts">
+                <td>{{ product._id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>$ {{ product.price }}</td>
+                <td>
+                  <button [routerLink]="['/products', product._id]">Details</button>
+                  <button [routerLink]="['/products', product._id, 'edit']">Update</button>
+                </td>
+              </tr>
+        </tbody>
+    </table>
+</div>

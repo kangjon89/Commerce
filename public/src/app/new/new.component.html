@@ -1,0 +1,66 @@
+<div class="row">
+    <h3>New Product!</h3>
+</div>
+
+<div class="column">
+
+    <form (submit)="createProduct(addedProduct)">
+
+        <!-- Name Validations -->
+        <div  *ngIf="name.invalid && (name.dirty || name.untouched || name.touched)">
+            <div *ngIf="name.errors && name.errors.minlength">
+                Names must contain at least three characters!
+            </div>
+            <div *ngIf="name.errors.required">
+                Name is required.
+            </div>
+        </div> 
+    
+        <!-- qty Validations -->
+        <div *ngIf="quantity.invalid && (quantity.dirty || quantity.untouched || quantity.touched)">
+            <div *ngIf="quantity.errors && quantity.errors.minlength">
+                Quantity minimum is 1!
+            </div>
+            <div *ngIf="quantity.errors.required">
+                Quantity is required.
+            </div>
+        </div> 
+        <!-- price -->
+        <div *ngIf="price.invalid && (price.dirty || price.untouched || price.touched)">
+            <div *ngIf="price.errors && price.errors.minlength">
+                Price minimum is $1!
+            </div>
+            <div *ngIf="price.errors.required">
+                Price is required.
+            </div>
+        </div> <br>
+    
+        <label for="name">Name:</label>
+        <br>
+        <input type="text" name="name" id="name" 
+            [(ngModel)]="addedProduct.name" 
+            required minlength="3" #name="ngModel">
+        <br>
+
+        <label for="type">QTY:</label>
+        <br>
+        <input type="text" name="quantity" id="quantity" 
+            [(ngModel)]="addedProduct.quantity" 
+            required minlength="3" #quantity="ngModel" />
+        <br> 
+
+        <label for="type">Price:</label>
+        <br>
+        <input type="text" name="price" id="price" 
+            [(ngModel)]="addedProduct.price" 
+            required minlength="3" #price="ngModel" />
+        <br> <br>
+
+        <button (click)="goHome()">CANCEL</button>
+        <input type="submit" value="CREATE">
+    
+    </form>
+
+
+</div>
+

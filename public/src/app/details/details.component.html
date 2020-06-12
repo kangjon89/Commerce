@@ -1,0 +1,32 @@
+<div class="row">
+    <h3>Product Details!</h3>
+</div>
+
+<div class="table">
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>QTY</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ oneProduct.name }}</td>
+            <td>{{ oneProduct.quantity }}</td>
+            <td>{{ oneProduct.price }}</td>
+            <td>
+                <input type="button" class="btn btn-danger" routerLink="/products"
+                (click) = "deleteProduct(oneProduct._id)" class="del-btn"  value="Delete">
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+
+
+
+
